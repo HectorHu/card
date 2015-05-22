@@ -1,11 +1,20 @@
 (function() {
+	var start_header = document.getElementById('start-header');
+	var start_header_li = start_header.getElementsByTagName("li");
+	var i = 0;
+	var s = setInterval( function() {
+		start_header_li[i].style.display = 'inline-block';
+		if (++i == start_header_li.length) {
+			clearInterval(s);
+		}
+	}, 1000);
+
 	var start = document.getElementById('start');
 	start.onmouseover = function() {
-		console.log(start);
-		this.style.backgroundColor = '#A4A4A4';
+		this.style.backgroundColor = '#333';
 	}
 
 	start.onmouseout = function() {
-		this.style.backgroundColor = '#D8D8D8';
+		this.style.backgroundColor = '#fff';
 	}
 })();
