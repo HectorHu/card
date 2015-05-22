@@ -1,0 +1,110 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	/*background-color: #D8D8D8;*/
+	height: 1000px;
+}
+
+#egg {
+	background-image: url(../images/egg.png);
+	width: 65px;
+ 	height: 65px;
+	position:absolute;
+	left: 0px;
+	top: 0;
+	z-index: 9;
+	-webkit-animation:myfirst 1.5s;
+	-0-animation:myfirst 1.5s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes myfirst
+{
+	0%   {left: 101px; top: 0px;}
+	100% {
+		left: 100px; top: 500px;-webkit-animation-fill-mode: forwards;
+	}
+}
+
+#egg_broke {
+	-webkit-transition-delay: 1s;
+	display: none;
+}
+
+#kid {
+	width: 65px;
+ 	height: 65px;
+	position:absolute;
+	z-index: 9;
+	-webkit-animation:mysecond 1.5s;
+	-0-animation:mysecond 1.5s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes mysecond
+{
+	0%   {left: 100px; top: 500px;-webkit-transform:rotate(7deg);}
+	25% {left: 140px; top: 500px;-webkit-transform:rotate(-7deg);}
+	50% {left: 180px; top: 500px;-webkit-transform:rotate(7deg);}
+	75% {left: 220px; top: 500px;-webkit-transform:rotate(-7deg);}
+	100% {
+		left: 260px; top: 500px;-webkit-animation-fill-mode: forwards;
+	}
+}
+
+#pupils {
+	width: 72px;
+ 	height: 107px;
+	position:absolute;
+	z-index: 9;
+	-webkit-animation:mythird 1.5s;
+	-0-animation:mythird 1.5s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes mythird
+{
+	0%   {left: 261px; top: 500px;}
+	100% {
+		left: 400px; top: 500px;-webkit-animation-fill-mode: forwards;
+	}
+}
+
+#pupilsGra {
+	width: 102px;
+ 	height: 133px;
+	position:absolute;
+	z-index: 9;
+	-webkit-animation:myforth 1.5s;
+	-0-animation:myforth 1.5s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes myforth
+{
+	0%   {left: 401px; top: 500px;}
+	100% {
+		left: 560px; top: 500px;-webkit-animation-fill-mode: forwards;
+	}
+}
+
+#junior {
+	width: 102px;
+ 	height: 133px;
+	position:absolute;
+	z-index: 9;
+	-webkit-animation:myfifth 1.5s;
+	-0-animation:myfifth 1.5s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes myfifth
+{
+	0%   {left: 561px; top: 500px;}
+	100% {
+		left: 760px; top: 500px;-webkit-animation-fill-mode: forwards;
+	}
+}
