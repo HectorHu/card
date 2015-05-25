@@ -47,11 +47,11 @@ body {
 @-webkit-keyframes mysecond
 {
 	0%   {left: 100px; top: 500px;-webkit-transform:rotate(7deg);}
-	25% {left: 140px; top: 500px;-webkit-transform:rotate(-7deg);}
-	50% {left: 180px; top: 500px;-webkit-transform:rotate(7deg);}
-	75% {left: 220px; top: 500px;-webkit-transform:rotate(-7deg);}
+	25% {left: 145px; top: 500px;-webkit-transform:rotate(-7deg);}
+	50% {left: 190px; top: 500px;-webkit-transform:rotate(7deg);}
+	75% {left: 235px; top: 500px;-webkit-transform:rotate(-7deg);}
 	100% {
-		left: 260px; top: 500px;-webkit-animation-fill-mode: forwards;
+		left: 280px; top: 500px;-webkit-animation-fill-mode: forwards;
 	}
 }
 
@@ -67,33 +67,15 @@ body {
 
 @-webkit-keyframes mythird
 {
-	0%   {left: 261px; top: 500px;}
+	0%   {left: 281px; top: 500px;}
 	100% {
-		left: 400px; top: 500px;-webkit-animation-fill-mode: forwards;
-	}
-}
-
-#pupilsGra {
-	width: 102px;
- 	height: 133px;
-	position:absolute;
-	z-index: 9;
-	-webkit-animation:myforth 1.5s;
-	-0-animation:myforth 1.5s;
-	-webkit-animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes myforth
-{
-	0%   {left: 401px; top: 500px;}
-	100% {
-		left: 560px; top: 500px;-webkit-animation-fill-mode: forwards;
+		left: 460px; top: 500px;-webkit-animation-fill-mode: forwards;
 	}
 }
 
 #junior {
-	width: 102px;
- 	height: 133px;
+	width: 72px;
+ 	height: 107px;
 	position:absolute;
 	z-index: 9;
 	-webkit-animation:myfifth 1.5s;
@@ -103,8 +85,62 @@ body {
 
 @-webkit-keyframes myfifth
 {
-	0%   {left: 561px; top: 500px;}
+	0%   {left: 461px; top: 500px;}
 	100% {
-		left: 760px; top: 500px;-webkit-animation-fill-mode: forwards;
+		left: 640px; top: 500px;-webkit-animation-fill-mode: forwards;
+	}
+}
+
+#senior {
+	width: 72px;
+ 	height: 107px;
+	position:absolute;
+	z-index: 9;
+	-webkit-animation:mysixed 1.5s;
+	-0-animation:mysixed 1.5s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes mysixed
+{
+	0%   {left: 641px; top: 500px;}
+	100% {
+		left: 820px; top: 500px;-webkit-animation-fill-mode: forwards;
+	}
+}
+
+#college {
+	width: 72px;
+ 	height: 107px;
+	position:absolute;
+	z-index: 9;
+	-webkit-animation:mysevened 1.5s;
+	-0-animation:mysevened 1.5s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes mysevened
+{
+	0%   {left: 821px; top: 500px;}
+	100% {
+		left: 1000px; top: 500px;-webkit-animation-fill-mode: forwards;
+	}
+}
+
+#recent {
+	width: 72px;
+ 	height: 107px;
+	position:absolute;
+	z-index: 9;
+	-webkit-animation:myeight 1.5s;
+	-0-animation:myeight 1.5s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes myeight
+{
+	0%   {left: 1001px; top: 500px;}
+	100% {
+		left: 1180px; top: 500px;-webkit-animation-fill-mode: forwards;
 	}
 }
