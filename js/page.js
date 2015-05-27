@@ -2,199 +2,110 @@
 * @Author: Hector
 * @Date:   2015-05-22 17:15:52
 * @Last Modified by:   huhuaquan
-* @Last Modified time: 2015-05-26 10:58:41
+* @Last Modified time: 2015-05-27 15:34:47
 */
 (function() {
-	var $_id = function(id) {
-		return typeof id === 'string' ? document.getElementById(id) : id;
-	};
+    function move(begin, end) {
+      var elem = $('#timeline');
+      var left = begin;
 
-	//设置透明度
-    function setOpacity(item,level){ 
-        if(item.filters){ 
-            item.style.filter = "alpha(opacity="+level+")";
-        }else{
-            item.style.opacity = level / 100;
-        }
-    }
+	  function frame() {
+	    
+	    left++;  // update parameters 
+	    
+	    elem.width(left);
 
-	//淡入处理函数
-    function fadeIn(item) {
-        setOpacity(item, 0);
-        for(var i = 0; i<=20; i++) {
-            (function(i){ 
-                var level = i * 5;
-                setTimeout(function(){ 
-                    setOpacity(item, level)
-                },i*25);
-            })(i);
-        }
-    }
+	    if (left == end)  // check finish condition
+	      clearInterval(id)
+	  }
 
-    //淡出处理函数
-    function fadeOut(item) {
-        setOpacity(item, 0);
-        for(var i = 0; i<=20; i++) {
-            (function(i){ 
-                var level = 100 - i * 5;
-                setTimeout(function(){ 
-                    setOpacity(item, level)
-                },i*25);
-            })(i);
-        }
-    }
-
-	function copyProperty(newDiv, old) {
-		newDiv.style.offsetLeft = old.style.offsetLeft;
-		newDiv.style.width = old.style.width;
-		newDiv.style.height = old.style.height;
-		newDiv.style.backgroundImage = old.style.backgroundImage;
+	  var id = setInterval(frame, 10) // draw every 10ms
 	}
 
-	var egg = $_id('egg');
-	egg.addEventListener('webkitAnimationStart', listener, false);
-	egg.addEventListener('webkitAnimationEnd', listener, false);
-	egg.addEventListener('webkitAnimationIteration', listener, false);
+	var egg = $('#egg');
+	egg.one('webkitAnimationStart webkitAnimationEnd webkitAnimationIteration', function(e) {
+		if ($(this).offset().left == 100) {
+			var	broegg = $('#broegg');
+			$(this).fadeTo('slow', 0);
+			broegg.fadeTo('slow', 1);
+			setTimeout(function () {growToKid();move(0, 180)}, 500);
+		};
+	});
 
-	function listener(e) {
-		if (this.offsetLeft == 100) {
-			fadeOut(this);
-			this.style.backgroundImage = "url(./images/egg_broke.jpg)";
-			fadeIn(this);
-			setTimeout(function () {growToKid()}, 500);
-		}
-	}
-
-	function growToKid() {	
-		egg.setAttribute('id', 'kid');
-		var kid = $_id('kid');
-		kid.addEventListener('webkitAnimationStart', listenerKid, false);
-		kid.addEventListener('webkitAnimationEnd', listenerKid, false);
-		kid.addEventListener('webkitAnimationIteration', listenerKid, false);
-	}
-
-	function listenerKid(e) {
-		if (this.offsetLeft == 280) {
-			this.style.width = "72px";
-			this.style.height = "107px";
-			fadeOut(this);
-			this.style.backgroundImage = "url(./images/kid.png)";
-			fadeIn(this);
-			setTimeout(function () {growToPupils()}, 500);
-		}
+	function growToKid() {
+		var broegg = $("#broegg");
+		broegg.css('-webkit-animation-play-state', 'running');
+		broegg.one('webkitAnimationStart webkitAnimationEnd webkitAnimationIteration', function(e) {
+			if ($(this).offset().left == 280) {
+				$(this).fadeTo('slow', 0);
+				var kid = $('#kid');
+				kid.fadeTo('slow', 1);
+				setTimeout(function () {growToPupils();move(181, 360);}, 500);
+			};
+		});
 	}
 
 	function growToPupils() {
-		var kid = $_id('kid'),
-			newDiv = document.createElement('div');
-		newDiv.id = 'pupils';
-		copyProperty(newDiv, kid);
-		document.body.insertBefore(newDiv, kid);
-		var pupils = document.getElementById('pupils');
-		pupils.addEventListener('webkitAnimationStart', listenerPupils, false);
-		pupils.addEventListener('webkitAnimationEnd', listenerPupils, false);
-		pupils.addEventListener('webkitAnimationIteration', listenerPupils, false);
-	}
-
-	function listenerPupils(e) {
-		if (this.offsetLeft == 460) {
-			this.style.width = "72px";
-			this.style.height = "107px";
-			fadeOut(this);
-			this.style.backgroundImage = "url(./images/pupils.png)";
-			fadeIn(this);
-			setTimeout(function () {growToJunior()}, 500);
-		}
+		var kid = $("#kid");
+		kid.css('-webkit-animation-play-state', 'running');
+		kid.one('webkitAnimationStart webkitAnimationEnd webkitAnimationIteration', function(e) {
+			if ($(this).offset().left == 460) {
+				$(this).fadeTo('slow', 0);
+				var pupils = $('#pupils');
+				pupils.fadeTo('slow', 1);
+				setTimeout(function () {growToJunior();move(361, 540);}, 500);
+			};
+		});
 	}
 
 	function growToJunior() {
-		var pupils = $_id('pupils'),
-			newDiv = document.createElement('div');
-		newDiv.id = 'junior';
-		copyProperty(newDiv, pupils);
-		document.body.insertBefore(newDiv, pupils);
-		var junior = document.getElementById('junior');
-		junior.addEventListener('webkitAnimationStart', listenerJunior, false);
-		junior.addEventListener('webkitAnimationEnd', listenerJunior, false);
-		junior.addEventListener('webkitAnimationIteration', listenerJunior, false);
-	}
-
-	function listenerJunior(e) {
-		if (this.offsetLeft == 640) {
-			this.style.width = "72px";
-			this.style.height = "107px";
-			fadeOut(this);
-			this.style.backgroundImage = "url(./images/junior.jpg)";
-			fadeIn(this);
-			setTimeout(function () {growToSenior()}, 500);
-		}
+		var pupils = $("#pupils");
+		pupils.css('-webkit-animation-play-state', 'running');
+		pupils.one('webkitAnimationStart webkitAnimationEnd webkitAnimationIteration', function(e) {
+			if ($(this).offset().left == 640) {
+				$(this).fadeTo('slow', 0);
+				var junior = $('#junior');
+				junior.fadeTo('slow', 1);
+				setTimeout(function () {growToSenior();move(541, 720);}, 500);
+			};
+		});
 	}
 
 	function growToSenior() {
-		var junior = $_id('junior'),
-			newDiv = document.createElement('div');
-		newDiv.id = 'senior';
-		copyProperty(newDiv, junior);
-		document.body.insertBefore(newDiv, junior);
-		var senior = document.getElementById('senior');
-		senior.addEventListener('webkitAnimationStart', listenerSenior, false);
-		senior.addEventListener('webkitAnimationEnd', listenerSenior, false);
-		senior.addEventListener('webkitAnimationIteration', listenerSenior, false);
-	}
-
-	function listenerSenior(e) {
-		if (this.offsetLeft == 820) {
-			this.style.width = "72px";
-			this.style.height = "107px";
-			fadeOut(this);
-			this.style.backgroundImage = "url(./images/senior.jpg)";
-			fadeIn(this);
-			setTimeout(function () {growToCollege()}, 500);
-		}
+		var junior = $("#junior");
+		junior.css('-webkit-animation-play-state', 'running');
+		junior.one('webkitAnimationStart webkitAnimationEnd webkitAnimationIteration', function(e) {
+			if ($(this).offset().left == 820) {
+				$(this).fadeTo('slow', 0);
+				var senior = $('#senior');
+				senior.fadeTo('slow', 1);
+				setTimeout(function () {growToCollege();move(721, 900);}, 500);
+			};
+		});
 	}
 
 	function growToCollege() {
-		var senior = $_id('senior'),
-			newDiv = document.createElement('div');
-		newDiv.id = 'college';
-		copyProperty(newDiv, senior);
-		document.body.insertBefore(newDiv, senior);
-		var college = document.getElementById('college');
-		college.addEventListener('webkitAnimationStart', listenerCollege, false);
-		college.addEventListener('webkitAnimationEnd', listenerCollege, false);
-		college.addEventListener('webkitAnimationIteration', listenerCollege, false);
-	}
-
-	function listenerCollege(e) {
-		if (this.offsetLeft == 1000) {
-			this.style.width = "72px";
-			this.style.height = "107px";
-			fadeOut(this);
-			this.style.backgroundImage = "url(./images/college.jpg)";
-			fadeIn(this);
-			setTimeout(function () {growToRecent()}, 500);
-		}
+		var senior = $("#senior");
+		senior.css('-webkit-animation-play-state', 'running');
+		senior.one('webkitAnimationStart webkitAnimationEnd webkitAnimationIteration', function(e) {
+			if ($(this).offset().left == 1000) {
+				$(this).fadeTo('slow', 0);
+				var college = $('#college');
+				college.fadeTo('slow', 1);
+				setTimeout(function () {growToRecent();move(901, 1080);}, 500);
+			};
+		});
 	}
 
 	function growToRecent() {
-		var college = $_id('college'),
-			newDiv = document.createElement('div');
-		newDiv.id = 'recent';
-		copyProperty(newDiv, college);
-		document.body.insertBefore(newDiv, college);
-		var recent = document.getElementById('recent');
-		recent.addEventListener('webkitAnimationStart', listenerRecent, false);
-		recent.addEventListener('webkitAnimationEnd', listenerRecent, false);
-		recent.addEventListener('webkitAnimationIteration', listenerRecent, false);
-	}
-
-	function listenerRecent(e) {
-		if (this.offsetLeft == 1180) {
-			this.style.width = "72px";
-			this.style.height = "107px";
-			fadeOut(this);
-			this.style.backgroundImage = "url(./images/now.jpg)";
-			fadeIn(this);
-		}
+		var college = $("#college");
+		college.css('-webkit-animation-play-state', 'running');
+		college.one('webkitAnimationStart webkitAnimationEnd webkitAnimationIteration', function(e) {
+			if ($(this).offset().left == 1180) {
+				$(this).fadeTo('slow', 0);
+				var recent = $('#recent');
+				recent.fadeTo('slow', 1);
+			};
+		});
 	}
 })();
