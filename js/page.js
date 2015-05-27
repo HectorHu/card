@@ -2,10 +2,13 @@
 * @Author: Hector
 * @Date:   2015-05-22 17:15:52
 * @Last Modified by:   huhuaquan
-* @Last Modified time: 2015-05-27 15:34:47
+* @Last Modified time: 2015-05-27 15:40:04
 */
 (function() {
-    function move(begin, end) {
+	var first = 9,
+		second = 5.5;
+
+    function move(begin, end, interval) {
       var elem = $('#timeline');
       var left = begin;
 
@@ -19,7 +22,7 @@
 	      clearInterval(id)
 	  }
 
-	  var id = setInterval(frame, 10) // draw every 10ms
+	  var id = setInterval(frame, interval) // draw every 10ms
 	}
 
 	var egg = $('#egg');
@@ -28,7 +31,7 @@
 			var	broegg = $('#broegg');
 			$(this).fadeTo('slow', 0);
 			broegg.fadeTo('slow', 1);
-			setTimeout(function () {growToKid();move(0, 180)}, 500);
+			setTimeout(function () {growToKid();move(0, 180, first)}, 500);
 		};
 	});
 
@@ -40,7 +43,7 @@
 				$(this).fadeTo('slow', 0);
 				var kid = $('#kid');
 				kid.fadeTo('slow', 1);
-				setTimeout(function () {growToPupils();move(181, 360);}, 500);
+				setTimeout(function () {growToPupils();move(181, 360, second);}, 500);
 			};
 		});
 	}
@@ -53,7 +56,7 @@
 				$(this).fadeTo('slow', 0);
 				var pupils = $('#pupils');
 				pupils.fadeTo('slow', 1);
-				setTimeout(function () {growToJunior();move(361, 540);}, 500);
+				setTimeout(function () {growToJunior();move(361, 540, second);}, 500);
 			};
 		});
 	}
@@ -66,7 +69,7 @@
 				$(this).fadeTo('slow', 0);
 				var junior = $('#junior');
 				junior.fadeTo('slow', 1);
-				setTimeout(function () {growToSenior();move(541, 720);}, 500);
+				setTimeout(function () {growToSenior();move(541, 720, second);}, 500);
 			};
 		});
 	}
@@ -79,7 +82,7 @@
 				$(this).fadeTo('slow', 0);
 				var senior = $('#senior');
 				senior.fadeTo('slow', 1);
-				setTimeout(function () {growToCollege();move(721, 900);}, 500);
+				setTimeout(function () {growToCollege();move(721, 900, second);}, 500);
 			};
 		});
 	}
@@ -92,7 +95,7 @@
 				$(this).fadeTo('slow', 0);
 				var college = $('#college');
 				college.fadeTo('slow', 1);
-				setTimeout(function () {growToRecent();move(901, 1080);}, 500);
+				setTimeout(function () {growToRecent();move(901, 1080, second);}, 500);
 			};
 		});
 	}
