@@ -2,7 +2,7 @@
 * @Author: Hector
 * @Date:   2015-05-22 17:15:52
 * @Last Modified by:   huhuaquan
-* @Last Modified time: 2015-05-27 18:53:07
+* @Last Modified time: 2015-05-28 10:33:53
 */
 (function() {
 
@@ -34,6 +34,8 @@
 					if ($(this).offset().left == 100) {
 						$(this).fadeTo('slow', 0);
 						$('#broegg').fadeTo('slow', 1);
+						$(this).css('background-image', "url(./images/egg_broke.jpg)");
+						$(this).fadeTo('fast', 1);
 						setTimeout(function () {
 							_this.growToKid();
 							move(0, 180, first)
@@ -48,6 +50,9 @@
 					if ($(this).offset().left == 280) {
 						$(this).fadeTo('slow', 0);
 						$('#kid').fadeTo('slow', 1);
+						$(this).css('background-image', "url(./images/kid.png)");
+						$(this).fadeTo('fast', 1);
+						$(this).height(107);
 						setTimeout(function () {
 							_this.growToPupils();
 							move(181, 360, second);
@@ -61,6 +66,8 @@
 					if ($(this).offset().left == 460) {
 						$(this).fadeTo('slow', 0);
 						$('#pupils').fadeTo('slow', 1);
+						$(this).css('background-image', "url(./images/pupils.png)");
+						$(this).fadeTo('fast', 1);
 						setTimeout(function () {
 							_this.growToJunior();
 							move(361, 540, second);
@@ -74,6 +81,8 @@
 					if ($(this).offset().left == 640) {
 						$(this).fadeTo('slow', 0);
 						$('#junior').fadeTo('slow', 1);
+						$(this).css('background-image', "url(./images/junior.jpg)");
+						$(this).fadeTo('fast', 1);
 						setTimeout(function () {
 							_this.growToSenior();
 							move(541, 720, second);
@@ -87,6 +96,8 @@
 					if ($(this).offset().left == 820) {
 						$(this).fadeTo('slow', 0);
 						$('#senior').fadeTo('slow', 1);
+						$(this).css('background-image', "url(./images/senior.jpg)");
+						$(this).fadeTo('fast', 1);
 						setTimeout(function () {
 							_this.growToCollege();
 							move(721, 900, second);
@@ -100,6 +111,8 @@
 					if ($(this).offset().left == 1000) {
 						$(this).fadeTo('slow', 0);
 						$('#college').fadeTo('slow', 1);
+						$(this).css('background-image', "url(./images/college.jpg)");
+						$(this).fadeTo('fast', 1);
 						setTimeout(function () {
 							_this.growToRecent();
 							move(901, 1080, second);
