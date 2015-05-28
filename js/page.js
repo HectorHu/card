@@ -2,7 +2,7 @@
 * @Author: Hector
 * @Date:   2015-05-22 17:15:52
 * @Last Modified by:   huhuaquan
-* @Last Modified time: 2015-05-28 16:10:31
+* @Last Modified time: 2015-05-28 17:14:05
 */
 (function() {
 
@@ -10,7 +10,8 @@
 		var first = 9,
 			second = 5.5,
 			animationProperty = 'webkitAnimationEnd',
-			animateState = '-webkit-animation-play-state';
+			animateState = '-webkit-animation-play-state',
+			positions = [0, 190, 370, 550, 730, 910, 1090, 1270];
 
 		function move(begin, end, interval) {
 	    	var elem = $('#timeline'),
@@ -30,17 +31,19 @@
 		function drawTime(elemName) {
 			var elem = $('#' + elemName + '_time'),
 				top = 0,
-				height = 20;
+				height = 20,
+				interval = 10,
+				display = 1;
 			function frame() {
 				++top;
 				elem.height(top);
 				if (top == height) {
-					$('#' + elemName + '_desc').fadeTo('slow', 1);
+					$('#' + elemName + '_desc').fadeTo('slow', display);
 					clearInterval(id);
 				}
 			}
 
-			var id = setInterval(frame, 10);
+			var id = setInterval(frame, interval);
 		}
 
 		return {
@@ -52,7 +55,7 @@
 					drawTime('broegg');
 					setTimeout(function () {
 						_this.growToKid();
-						move(0, 180, first);
+						move(positions[0], positions[1], second);
 					}, 500);
 				});
 			},
@@ -64,7 +67,7 @@
 					drawTime('kid');
 					setTimeout(function () {
 						_this.growToPupils();
-						move(181, 360, second);
+						move(positions[1], positions[2], second);
 					}, 500);
 				});
 			},
@@ -76,7 +79,7 @@
 					drawTime('pupils');
 					setTimeout(function () {
 						_this.growToJunior();
-						move(361, 540, second);
+						move(positions[2], positions[3], second);
 					}, 500);
 				});
 			},
@@ -87,20 +90,32 @@
 					$(this).fadeTo('slow', 1);
 					drawTime('junior');
 					setTimeout(function () {
+						_this.growToWithme();
+						move(positions[3], positions[4], second);
+					}, 500);
+				});
+			},
+			growToWithme : function() {
+				var _this = this;
+				$("#withme").addClass('animated lightSpeedIn').one(animationProperty, function(e) {
+					$(this).removeClass('lightSpeedIn');
+					$(this).fadeTo('slow', 1);
+					drawTime('withme');
+					setTimeout(function () {
 						_this.growToSenior();
-						move(541, 720, second);
+						move(positions[4], positions[5], second);
 					}, 500);
 				});
 			},
 			growToSenior : function() {
 				var _this = this;
-				$("#senior").addClass('animated lightSpeedIn').one(animationProperty, function(e) {
+				$("#senior").addClass('animated fadeInUpBig').one(animationProperty, function(e) {
 					$(this).removeClass('lightSpeedIn');
 					$(this).fadeTo('slow', 1);
 					drawTime('senior');
 					setTimeout(function () {
 						_this.growToCollege();
-						move(721, 900, second);
+						move(positions[5], positions[6], second);
 					}, 500);
 				});
 			},
@@ -112,7 +127,7 @@
 					drawTime('college');
 					setTimeout(function () {
 						_this.growToRecent();
-						move(901, 1080, second);
+						move(positions[6], positions[7], second);
 					}, 500);
 				});
 			},
@@ -121,6 +136,7 @@
 					$(this).removeClass('rotateIn');
 					$(this).fadeTo('slow', 1);
 					drawTime('recent');
+					// $("#main-content").fadeOut(4000);
 				});
 			}
 

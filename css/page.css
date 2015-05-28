@@ -36,7 +36,7 @@ body {
 	width: 72px;
  	height: 107px;
 	position:absolute;
-	left: 280px;
+	left: 290px;
 	top: 500px;
 	z-index: 9;
 	background-image: url(../images/kid.png);
@@ -47,7 +47,7 @@ body {
 	width: 72px;
  	height: 107px;
 	position:absolute;
-	left: 460px;
+	left: 470px;
 	top: 500px;
 	z-index: 9;
 	background-image: url(../images/pupils.png);
@@ -58,10 +58,21 @@ body {
 	width: 72px;
  	height: 107px;
 	position:absolute;
-	left: 640px;
+	left: 650px;
 	top: 500px;
 	z-index: 9;
 	background-image: url(../images/junior.jpg);
+	opacity: 0;
+}
+
+#withme {
+	width: 72px;
+	height: 107px;
+	position: absolute;
+	left: 830px;
+	top: 500px;
+	z-index: 9;
+	background-image: url(../images/couple.jpg);
 	opacity: 0;
 }
 
@@ -69,7 +80,7 @@ body {
 	width: 72px;
  	height: 107px;
 	position:absolute;
-	left: 820px;
+	left: 1010px;
 	top: 500px;
 	z-index: 9;
 	background-image: url(../images/senior.jpg);
@@ -80,7 +91,7 @@ body {
 	width: 72px;
  	height: 107px;
 	position:absolute;
-	left: 1000px;
+	left: 1190px;
 	top: 500px;
 	z-index: 9;
 	background-image: url(../images/college.jpg);
@@ -91,7 +102,7 @@ body {
 	width: 72px;
  	height: 107px;
 	position:absolute;
-	left: 1180px;
+	left: 1370px;
 	top: 500px;
 	z-index: 9;
 	background-image: url(../images/recent.jpg);
@@ -101,7 +112,7 @@ body {
 #timeline {
 	position: absolute;
 	height: 4px;
-	left: 140px;
+	left: 150px;
 	top: 620px;
 	background: #000;
 }
@@ -125,32 +136,40 @@ body {
 	text-align: center;
 }
 
+p .ch {
+	font-family: "Microsoft YaHei";
+}
+
 #broegg_time {
-	left: 140px;
+	left: 150px;
 }
 
 #kid_time {
-	left: 315px;
+	left: 335px;
 }
 
 #pupils_time {
-	left: 495px;
+	left: 515px;
 }
 
 #junior_time {
-	left: 675px;
+	left: 695px;
+}
+
+#withme_time {
+	left: 875px;
 }
 
 #senior_time {
-	left: 855px;
+	left: 1055px;
 }
 
 #college_time {
-	left: 1035px;
+	left: 1235px;
 }
 
 #recent_time {
-	left: 1215px;
+	left: 1415px;
 }
 
 #broegg_desc {
@@ -158,25 +177,29 @@ body {
 }
 
 #kid_desc {
-	left: 280px;
+	left: 290px;
 }
 
 #pupils_desc {
-	left: 460px;
+	left: 470px;
 }
 
 #junior_desc {
-	left: 640px;
+	left: 650px;
+}
+
+#withme_desc {
+	left: 830px;
 }
 
 #senior_desc {
-	left: 820px;
+	left: 1010px;
 }
 
 #college_desc {
-	left: 1000px;
+	left: 1190px;
 }
 
 #recent_desc {
-	left: 1180px;
+	left: 1370px;
 }
