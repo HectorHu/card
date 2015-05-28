@@ -8,25 +8,18 @@ body {
 	height: 1000px;
 }
 
+.visited {
+	opacity: 1;
+}
+
 #egg {
 	background-image: url(../images/egg.png);
 	width: 65px;
  	height: 65px;
 	position:absolute;
-	left: 0px;
-	top: 0;
+	left: 100px;
+	top: 500px;
 	z-index: 9;
-	-webkit-animation:myfirst 1.5s;
-	-0-animation:myfirst 1.5s;
-	-webkit-animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes myfirst
-{
-	0%   {left: 101px; top: 0px;}
-	100% {
-		left: 100px; top: 500px;-webkit-animation-fill-mode: forwards;
-	}
 }
 
 #broegg {
@@ -36,22 +29,7 @@ body {
 	left: 100px;
 	top: 500px;
 	z-index: 9;
-	background-image: url(../images/egg_broke.jpg);
-	opacity: 0;
-	-webkit-animation: mysecond 1.5s;
-	-webkit-animation-play-state: paused;
-	-webkit-animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes mysecond
-{
-	1%   {left: 100px; top: 500px;-webkit-transform:rotate(7deg);}
-	25% {left: 145px; top: 500px;-webkit-transform:rotate(-7deg);}
-	50% {left: 190px; top: 500px;-webkit-transform:rotate(7deg);}
-	75% {left: 235px; top: 500px;-webkit-transform:rotate(-7deg);}
-	100% {
-		left: 280px; top: 500px;-webkit-animation-fill-mode: forwards;
-	}
+	background-image: url(../images/egg.png);
 }
 
 #kid {
@@ -63,17 +41,6 @@ body {
 	z-index: 9;
 	background-image: url(../images/kid.png);
 	opacity: 0;
-	-webkit-animation:mythird 1.5s;
-	-webkit-animation-play-state: paused;
-	-webkit-animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes mythird
-{
-	0%   {left: 281px; top: 500px;}
-	100% {
-		left: 460px; top: 500px;-webkit-animation-fill-mode: forwards;
-	}
 }
 
 #pupils {
@@ -85,17 +52,6 @@ body {
 	z-index: 9;
 	background-image: url(../images/pupils.png);
 	opacity: 0;
-	-webkit-animation:saas 1.5s;
-	-webkit-animation-play-state: paused;
-	-webkit-animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes saas
-{
-	0%   {left: 461px; top: 500px;}
-	100% {
-		left: 640px; top: 500px;-webkit-animation-fill-mode: forwards;
-	}
 }
 
 #junior {
@@ -107,17 +63,6 @@ body {
 	z-index: 9;
 	background-image: url(../images/junior.jpg);
 	opacity: 0;
-	-webkit-animation:myfifth 1.5s;
-	-webkit-animation-play-state: paused;
-	-webkit-animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes myfifth
-{
-	0%   {left: 641px; top: 500px;}
-	100% {
-		left: 820px; top: 500px;-webkit-animation-fill-mode: forwards;
-	}
 }
 
 #senior {
@@ -129,17 +74,6 @@ body {
 	z-index: 9;
 	background-image: url(../images/senior.jpg);
 	opacity: 0;
-	-webkit-animation:mysixed 1.5s;
-	-webkit-animation-play-state: paused;
-	-webkit-animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes mysixed
-{
-	0%   {left: 821px; top: 500px;}
-	100% {
-		left: 1000px; top: 500px;-webkit-animation-fill-mode: forwards;
-	}
 }
 
 #college {
@@ -151,17 +85,6 @@ body {
 	z-index: 9;
 	background-image: url(../images/college.jpg);
 	opacity: 0;
-	-webkit-animation:mysevened 1.5s;
-	-webkit-animation-play-state: paused;
-	-webkit-animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes mysevened
-{
-	0%   {left: 1000px; top: 500px;}
-	100% {
-		left: 1180px; top: 500px;-webkit-animation-fill-mode: forwards;
-	}
 }
 
 #recent {
@@ -198,6 +121,7 @@ body {
 }
 
 .time_desc p {
+	font-family: "Lucida handwriting";
 	text-align: center;
 }
 
