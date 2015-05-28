@@ -2,7 +2,7 @@
 * @Author: Hector
 * @Date:   2015-05-22 17:15:52
 * @Last Modified by:   huhuaquan
-* @Last Modified time: 2015-05-28 10:33:53
+* @Last Modified time: 2015-05-28 12:44:02
 */
 (function() {
 
@@ -27,6 +27,22 @@
 			var id = setInterval(frame, interval);
 		}
 
+		function drawTime(elemName) {
+			var elem = $('#' + elemName + '_time'),
+				top = 0,
+				height = 20;
+			function frame() {
+				++top;
+				elem.height(top);
+				if (top == height) {
+					$('#' + elemName + '_desc').fadeTo('slow', 1);
+					clearInterval(id);
+				}
+			}
+
+			var id = setInterval(frame, 10);
+		}
+
 		return {
 			init : function() {
 				var _this = this;
@@ -36,9 +52,10 @@
 						$('#broegg').fadeTo('slow', 1);
 						$(this).css('background-image', "url(./images/egg_broke.jpg)");
 						$(this).fadeTo('fast', 1);
+						drawTime('broegg');
 						setTimeout(function () {
 							_this.growToKid();
-							move(0, 180, first)
+							move(0, 180, first);
 						}, 500);
 					};
 				});
@@ -53,6 +70,7 @@
 						$(this).css('background-image', "url(./images/kid.png)");
 						$(this).fadeTo('fast', 1);
 						$(this).height(107);
+						drawTime('kid');
 						setTimeout(function () {
 							_this.growToPupils();
 							move(181, 360, second);
@@ -68,6 +86,7 @@
 						$('#pupils').fadeTo('slow', 1);
 						$(this).css('background-image', "url(./images/pupils.png)");
 						$(this).fadeTo('fast', 1);
+						drawTime('pupils');
 						setTimeout(function () {
 							_this.growToJunior();
 							move(361, 540, second);
@@ -83,6 +102,7 @@
 						$('#junior').fadeTo('slow', 1);
 						$(this).css('background-image', "url(./images/junior.jpg)");
 						$(this).fadeTo('fast', 1);
+						drawTime('junior');
 						setTimeout(function () {
 							_this.growToSenior();
 							move(541, 720, second);
@@ -98,6 +118,7 @@
 						$('#senior').fadeTo('slow', 1);
 						$(this).css('background-image', "url(./images/senior.jpg)");
 						$(this).fadeTo('fast', 1);
+						drawTime('senior');
 						setTimeout(function () {
 							_this.growToCollege();
 							move(721, 900, second);
@@ -113,6 +134,7 @@
 						$('#college').fadeTo('slow', 1);
 						$(this).css('background-image', "url(./images/college.jpg)");
 						$(this).fadeTo('fast', 1);
+						drawTime('college');
 						setTimeout(function () {
 							_this.growToRecent();
 							move(901, 1080, second);
@@ -125,6 +147,7 @@
 					if ($(this).offset().left == 1180) {
 						$(this).fadeTo('slow', 0);
 						$('#recent').fadeTo('slow', 1);
+						drawTime('recent');
 					};
 				});
 			}

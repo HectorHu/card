@@ -182,3 +182,77 @@ body {
 	top: 620px;
 	background: #000;
 }
+
+.time {
+	position: absolute;
+	width: 5px;
+	/*height: 20px;*/
+	top: 624px;
+	background-color: #000;
+}
+
+.time_desc {
+	position: absolute;
+	top: 645px;
+	opacity: 0;
+}
+
+.time_desc p {
+	text-align: center;
+}
+
+#broegg_time {
+	left: 140px;
+}
+
+#kid_time {
+	left: 315px;
+}
+
+#pupils_time {
+	left: 495px;
+}
+
+#junior_time {
+	left: 675px;
+}
+
+#senior_time {
+	left: 855px;
+}
+
+#college_time {
+	left: 1035px;
+}
+
+#recent_time {
+	left: 1215px;
+}
+
+#broegg_desc {
+	left: 100px;
+}
+
+#kid_desc {
+	left: 280px;
+}
+
+#pupils_desc {
+	left: 460px;
+}
+
+#junior_desc {
+	left: 640px;
+}
+
+#senior_desc {
+	left: 820px;
+}
+
+#college_desc {
+	left: 1000px;
+}
+
+#recent_desc {
+	left: 1180px;
+}
