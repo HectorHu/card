@@ -8,6 +8,9 @@ body {
 	height: 1000px;
 }
 
+@font-face { font-family : "mengli" ; src : url (mengli.ttf) ; font-weight: normal;
+    font-style: normal; }
+
 .visited {
 	opacity: 1;
 }
@@ -134,10 +137,6 @@ body {
 .time_desc p {
 	font-family: "Lucida handwriting";
 	text-align: center;
-}
-
-p .ch {
-	font-family: "Microsoft YaHei";
 }
 
 #broegg_time {
