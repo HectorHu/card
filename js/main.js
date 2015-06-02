@@ -2,7 +2,7 @@
 * @Author: Hector
 * @Date:   2015-05-22 17:15:52
 * @Last Modified by:   huhuaquan
-* @Last Modified time: 2015-05-29 15:37:20
+* @Last Modified time: 2015-06-02 16:18:39
 */
 (function() {
 
@@ -126,26 +126,49 @@
 				$("#recent").addClass('animated rotateIn').one(animationProperty, function(e) {
 					$(this).fadeTo('slow', 1);
 					_this.blessing();
-					// $("#main-content").fadeOut(4000);
 				});
 			},
 			blessing : function() {
 				var start_link = $('#start-link'),
 					start_header = $('#start-header'),
 					start_header_li = start_header.find("li"),
-					i = 0;
+					i = 0,
+					_this = this;
 				var s = setInterval( function() {
 					start_header_li[i].style.display = 'inline-block';
 					if (++i == start_header_li.length) {
 						clearInterval(s);
-						// start_link.attr("href", './page.html');
+						$("#main-content").fadeOut(4000);
+						$("#second-content").fadeIn(1000);
+						_this.sweet();
+					}
+				}, 700);
+			},
+			sweet : function() {
+				var _this = this;
+				setTimeout(function() {
+					$("#sweet").css('display', 'block');
+					_this.showSweet();
+				}, 4000);
+			},
+			showSweet : function() {
+				var i = 0,
+				words_text = '哈哈哈哈哈哈';
+
+				var ss = setInterval(function() {
+					console.log(words_text[i]);
+					var new_span = $('<span />').html(words_text[i]).css('display', 'inline-block').width(20);
+					$(new_span).addClass('animated slideInRight');
+					$("#sweet").find("p").append(new_span);
+					if (++i == words_text.length) {
+						clearInterval(ss);
 					}
 				}, 700);
 			}
-
 		}
 	})();
 	$("#start-link").click(function() {
+		$(this).fadeOut('slow', 0);
 		card.init();
 	});
 })();
